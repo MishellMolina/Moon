@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/Mishell.ico">
+    <title>MOON 🌕💫</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        /* Contenedor del video */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Para que quede detrás del contenido */
+        }
+        /* Estilo del video para que sea responsivo */
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /* Contenido superpuesto al video */
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente para mejor legibilidad */
+        }
+        h1 {
+            font-size: 3em;
+        }
+
+        /* Círculo que simula la luna */
+        .moon {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.9) 70%);
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(200, 200, 200, 0.8); /* Iluminación alrededor del círculo */
+        }
+
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            width: 500px;
+            height: 500px;
+            background-image: url('./img/moon_2.png'); /* Ruta de la textura lunar */
+            background-size: cover;
+            background-position: center;
+            clip-path: circle(50%);
+            animation: moveTexture 310s linear infinite; /* Animación más lenta para mayor realismo */
+        }
+
+        /* Movimiento de la textura para simular la rotación */
+        @keyframes moveTexture {
+            0% {
+                transform: translate(0, 0) rotateZ(0deg);
+            }
+            25% {
+                transform: translate(-10px, -10px) rotateZ(90deg);
+            }
+            50% {
+                transform: translate(-20px, -20px) rotateZ(180deg);
+            }
+            75% {
+                transform: translate(-10px, -10px) rotateZ(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotateZ(360deg); /* Rotación completa */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="vid/galaxy.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
+
+    <!-- Contenido superpuesto al video -->
+    <div class="content">
+        <div class="moon"></div>
+    </div>
+
+    <script>
+        // Si necesitas agregar JavaScript adicional, colócalo aquí
+    </script>
+    
+</body>
+</html>
